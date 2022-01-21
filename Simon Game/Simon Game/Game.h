@@ -38,12 +38,14 @@ private:
 	void buttonSetup();
 
 	sf::RenderWindow m_window; // main SFML window
-	sf::Font m_ArialBlackfont; // font used by message
+	sf::Font m_gameFont; // font used by message
 
 	sf::RectangleShape m_redButton; // red rectangle used for the button
 	sf::RectangleShape m_blueButton; // blue rectangle used for button
 	sf::RectangleShape m_greenButton; // green rectangle used for button
 	sf::RectangleShape m_yellowButton; // yellow rectangle used for button
+
+	sf::Text m_simonTitle; // text used for title
 
 	bool m_exitGame; // control exiting game
 

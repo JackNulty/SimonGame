@@ -120,6 +120,8 @@ void Game::render()
 	m_window.draw(m_greenButton);
 	m_window.draw(m_yellowButton);
 
+	m_window.draw(m_simonTitle);
+
 	m_window.display();
 }
 
@@ -128,11 +130,17 @@ void Game::render()
 /// </summary>
 void Game::setupFontAndText()
 {
-	if (!m_ArialBlackfont.loadFromFile("ASSETS\\FONTS\\ariblk.ttf"))
+	if (!m_gameFont.loadFromFile("ASSETS\\FONTS\\impact.ttf"))
 	{
-		std::cout << "problem loading arial black font" << std::endl;
+		std::cout << "problem loading font" << std::endl;
 	}
 	
+	//title text
+	m_simonTitle.setFont(m_gameFont);
+	m_simonTitle.setFillColor(WHITE);
+	m_simonTitle.setCharacterSize(64);
+	m_simonTitle.setPosition(50.0f, 30.0f);
+	m_simonTitle.setString("S I M O N");
 
 }
 
