@@ -12,6 +12,10 @@
 #include <SFML/Graphics.hpp>
 
 const sf::Color RED{ 180,0,0,255 };
+const sf::Color GREEN{ 0,180,0,255 };
+const sf::Color BLUE{ 0,0,180,255 };
+const sf::Color YELLOW{ 180,180,0,255 };
+const sf::Color WHITE{ 255,255,255,255 };
 
 class Game
 {
@@ -35,7 +39,12 @@ private:
 
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_ArialBlackfont; // font used by message
+
 	sf::RectangleShape m_redButton; // red rectangle used for the button
+	sf::RectangleShape m_blueButton; // blue rectangle used for button
+	sf::RectangleShape m_greenButton; // green rectangle used for button
+	sf::RectangleShape m_yellowButton; // yellow rectangle used for button
+
 	bool m_exitGame; // control exiting game
 
 };
