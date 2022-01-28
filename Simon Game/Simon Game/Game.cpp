@@ -106,6 +106,33 @@ void Game::update(sf::Time t_deltaTime)
 	{
 		m_window.close();
 	}
+	switch (m_currentGame)
+	{
+	case GameMode::Start:
+		startingUpdate();
+		break;
+	case GameMode::Showing:
+		showingUpdate();
+		break;
+	case GameMode::Recieving:
+		recievingUpdate();
+		break;
+	case GameMode::GameOver:
+		overUpdate();
+		break;
+	default:
+		break;
+	}
+	// reset buttons
+	resetButtons();
+}
+
+void Game::resetButtons()
+{
+	m_bluePressed = false;
+	m_redPressed = false;
+	m_yellowPressed = false;
+	m_greenPressed = false;
 }
 
 /// <summary>

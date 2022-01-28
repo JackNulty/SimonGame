@@ -45,6 +45,11 @@ private:
 	void setupFontAndText();
 	void buttonSetup();
 	void processGameEvents(sf::Event&);
+	void startingUpdate();
+	void recievingUpdate(sf::Time time);
+	void showingUpdate();
+	void overUpdate();
+	void resetButtons();
 
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_gameFont; // font used by message
