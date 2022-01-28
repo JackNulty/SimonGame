@@ -10,6 +10,7 @@
 /// Don't forget the endif at the bottom
 /// </summary>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 const sf::Color RED{ 180,0,0,255 };
 const sf::Color GREEN{ 0,180,0,255 };
@@ -46,6 +47,11 @@ private:
 	sf::RectangleShape m_yellowButton; // yellow rectangle used for button
 
 	sf::Text m_simonTitle; // text used for title
+	sf::SoundBuffer m_buffer; // buffer for tone
+	sf::Sound m_redTone; // red sound
+	sf::Sound m_blueTone; // blue sound
+	sf::Sound m_yellowTone; // yellow sound
+	sf::Sound m_greenTone; // green sound
 
 	bool m_exitGame; // control exiting game
 

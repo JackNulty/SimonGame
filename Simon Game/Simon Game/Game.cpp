@@ -146,6 +146,7 @@ void Game::setupFontAndText()
 
 void Game::buttonSetup()
 {
+	// buttons showing on screen
 	m_redButton.setFillColor(RED);
 	m_redButton.setPosition( sf::Vector2f(570.0f,30.0f) );
 
@@ -157,5 +158,21 @@ void Game::buttonSetup()
 
 	m_yellowButton.setFillColor(YELLOW);
 	m_yellowButton.setPosition(sf::Vector2f(350.0f, 250.0f));
+
+	//setup sound for tone
+	if (!m_buffer.loadFromFile("ASSETS\\AUDIO\\tone.wav"))
+	{
+		std::cout << "Audio not loaded properly" << std::endl;
+	}
+	m_redTone.setBuffer(m_buffer);
+	m_blueTone.setBuffer(m_buffer);
+	m_yellowTone.setBuffer(m_buffer);
+	m_greenTone.setBuffer(m_buffer);
+	m_redTone.setPitch(0.75f);
+	m_yellowTone.setPitch(0.5f);
+	m_greenTone.setPitch(0.25f);
+
+	//
+
 }
 
