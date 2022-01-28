@@ -121,7 +121,15 @@ void Game::render()
 	m_window.draw(m_yellowButton);
 
 	m_window.draw(m_simonTitle);
+	if (GameMode::Start == m_currentGame)
+	{
+		m_window.draw(m_redText);
+		m_window.draw(m_blueText);
+		m_window.draw(m_greenText);
+		m_window.draw(m_yellowText);
+	}
 
+	m_window.draw(m_fillerText);
 	m_window.display();
 }
 
@@ -141,6 +149,38 @@ void Game::setupFontAndText()
 	m_simonTitle.setCharacterSize(64);
 	m_simonTitle.setPosition(50.0f, 30.0f);
 	m_simonTitle.setString("S I M O N");
+
+	// instruction text
+	m_redText.setFont(m_gameFont);
+	m_redText.setFillColor(RED);
+	m_redText.setCharacterSize(32);
+	m_redText.setPosition(50, 200);
+	m_redText.setString("Press red for medium mode");
+
+	m_greenText.setFont(m_gameFont);
+	m_greenText.setFillColor(GREEN);
+	m_greenText.setCharacterSize(32);
+	m_greenText.setPosition(50, 100);
+	m_greenText.setString("Press green for easy mode");
+
+	m_yellowText.setFont(m_gameFont);
+	m_yellowText.setFillColor(YELLOW);
+	m_yellowText.setCharacterSize(32);
+	m_yellowText.setPosition(50, 300);
+	m_yellowText.setString("Press yellow for hard mode");
+
+	m_blueText.setFont(m_gameFont);
+	m_blueText.setFillColor(BLUE);
+	m_blueText.setCharacterSize(32);
+	m_blueText.setPosition(50, 400);
+	m_blueText.setString("Press blue to exit game");
+
+	//status text
+	m_fillerText.setFont(m_gameFont);
+	m_fillerText.setFillColor(WHITE);
+	m_fillerText.setCharacterSize(22);
+	m_fillerText.setPosition(500, 453);
+	m_fillerText.setString("");
 
 }
 
@@ -172,7 +212,7 @@ void Game::buttonSetup()
 	m_yellowTone.setPitch(0.5f);
 	m_greenTone.setPitch(0.25f);
 
-	//
+	//setup 
 
 }
 

@@ -12,6 +12,13 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
+enum class GameMode
+{
+	Showing,
+	Recieving,
+	GameOver,
+	Start
+};
 const sf::Color RED{ 180,0,0,255 };
 const sf::Color GREEN{ 0,180,0,255 };
 const sf::Color BLUE{ 0,0,180,255 };
@@ -47,11 +54,19 @@ private:
 	sf::RectangleShape m_yellowButton; // yellow rectangle used for button
 
 	sf::Text m_simonTitle; // text used for title
+	sf::Text m_redText; // text for red instructions
+	sf::Text m_blueText; // text for blue instructions
+	sf::Text m_greenText; // text for green instructions
+	sf::Text m_yellowText; // text for yellow instructions
+	sf::Text m_fillerText; // status text
+
 	sf::SoundBuffer m_buffer; // buffer for tone
 	sf::Sound m_redTone; // red sound
 	sf::Sound m_blueTone; // blue sound
 	sf::Sound m_yellowTone; // yellow sound
 	sf::Sound m_greenTone; // green sound
+
+	GameMode m_currentGame; // current mode of the game
 
 	bool m_exitGame; // control exiting game
 
