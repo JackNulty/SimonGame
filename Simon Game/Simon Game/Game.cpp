@@ -155,25 +155,25 @@ void Game::setupFontAndText()
 	m_redText.setFillColor(RED);
 	m_redText.setCharacterSize(32);
 	m_redText.setPosition(50, 200);
-	m_redText.setString("Press red for medium mode");
+	m_redText.setString("Press red for \nmedium mode");
 
 	m_greenText.setFont(m_gameFont);
 	m_greenText.setFillColor(GREEN);
 	m_greenText.setCharacterSize(32);
 	m_greenText.setPosition(50, 100);
-	m_greenText.setString("Press green for easy mode");
+	m_greenText.setString("Press green for \neasy mode");
 
 	m_yellowText.setFont(m_gameFont);
 	m_yellowText.setFillColor(YELLOW);
 	m_yellowText.setCharacterSize(32);
 	m_yellowText.setPosition(50, 300);
-	m_yellowText.setString("Press yellow for hard mode");
+	m_yellowText.setString("Press yellow for \nhard mode");
 
 	m_blueText.setFont(m_gameFont);
 	m_blueText.setFillColor(BLUE);
 	m_blueText.setCharacterSize(32);
 	m_blueText.setPosition(50, 400);
-	m_blueText.setString("Press blue to exit game");
+	m_blueText.setString("Press blue to\n exit game");
 
 	//status text
 	m_fillerText.setFont(m_gameFont);
@@ -212,7 +212,45 @@ void Game::buttonSetup()
 	m_yellowTone.setPitch(0.5f);
 	m_greenTone.setPitch(0.25f);
 
-	//setup 
-
 }
 
+void Game::processGameEvents(sf::Event& event)
+{
+	const int COL_1_LEFT = 350;
+	const int COL_1_RIGHT = 550;
+	const int COL_2_LEFT = 570;
+	const int COL_2_RIGHT = 770;
+	const int ROW_1_TOP = 20;
+	const int ROW_1_BOTTOM = 230;
+	const int ROW_2_TOP = 250;
+	const int ROW_2_BOTTOM = 450;
+
+	// mouse release
+	if (sf::Event::MouseButtonReleased == event.type)
+	{
+		//check all constants
+		if (event.mouseButton.x > COL_1_LEFT && event.mouseButton.x < COL_1_RIGHT)
+		{
+			//row check
+			if (event.mouseButton.y > ROW_1_TOP && event.mouseButton.y < ROW_1_BOTTOM)
+			{
+				m_greenPressed = true;
+			}
+			if (event.mouseButton.y > ROW_2_TOP && event.mouseButton.y < ROW_2_BOTTOM)
+			{
+				m_yellowPressed = true;
+			}
+		}
+		if (event.mouseButton.x > COL_2_LEFT && event.mouseButton.x < COL_2_RIGHT)
+		{
+			if (event.mouseButton.y > ROW_1_TOP && event.mouseButton.y < ROW_1_BOTTOM)
+			{
+				m_redPressed = true;
+			}
+			if (event.mouseButton.y > ROW_2_TOP && event.mouseButton.y < ROW_2_BOTTOM)
+			{
+				m_bluePressed = true;
+			}
+		}
+	}
+}

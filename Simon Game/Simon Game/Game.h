@@ -44,6 +44,7 @@ private:
 	
 	void setupFontAndText();
 	void buttonSetup();
+	void processGameEvents(sf::Event&);
 
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_gameFont; // font used by message
@@ -66,7 +67,14 @@ private:
 	sf::Sound m_yellowTone; // yellow sound
 	sf::Sound m_greenTone; // green sound
 
+	// bools for mouse presses
+	bool m_redPressed;
+	bool m_bluePressed;
+	bool m_yellowPressed;
+	bool m_greenPressed;
+
 	GameMode m_currentGame; // current mode of the game
+	
 
 	bool m_exitGame; // control exiting game
 
